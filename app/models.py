@@ -13,4 +13,6 @@ class Produtos(models.Model):
   codigopdt_cmp = models.IntegerField()
   nomepdt_cmp = models.CharField(max_length=100)
   descpdt_cmp = models.CharField(max_length=100)
+  nomeemppdt_cmp = models.CharField(max_length=100)
+  precopdt_cmp = models.IntegerField()
 
