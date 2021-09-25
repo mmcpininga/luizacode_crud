@@ -5,7 +5,6 @@ from app.forms import EmpresasForm, ProdutosForm
 def home(request):
   return render(request, 'index.html')
 
-
 #'View Menu empresa'
 def menu_empresa(request):
   data={}
@@ -15,8 +14,6 @@ def menu_empresa(request):
   else:
     data['empresas'] = Empresas.objects.all()
   return render(request, 'mnuempresa.html', data)
-  # data['empresas'] = Empresas.objects.all()
-  # return render(request, 'mnuempresa.html',data)
 
 #'View cadastro empresa'
 def cadastro_empresa(request):

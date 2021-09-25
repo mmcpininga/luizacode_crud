@@ -9,4 +9,4 @@ class EmpresasForm(ModelForm):
 class ProdutosForm(ModelForm):
   class Meta:
     model = Produtos
-    fields = ['codigopdt_cmp', 'nomepdt_cmp', 'descpdt_cmp']
+    fields = ['codigopdt_cmp', 'nomepdt_cmp', 'descpdt_cmp', 'nomeemppdt_cmp', 'precopdt_cmp']
