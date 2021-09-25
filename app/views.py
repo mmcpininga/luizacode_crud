@@ -3,20 +3,20 @@ from app.models import Empresas, Produtos
 from app.forms import EmpresasForm, ProdutosForm
 
 def home(request):
-  data = {}
-  search = request.GET.get('search empresas')
-  if search:
-    data['empresas'] = Empresas.objects.filter(modelo__icontains = search)
-  else:
-    data['empresas'] = Empresas.objects.all()
-  return render(request, 'index.html', data)
+  return render(request, 'index.html')
 
 
 #'View Menu empresa'
 def menu_empresa(request):
   data={}
-  data['empresas'] = Empresas.objects.all()
-  return render(request, 'mnuempresa.html',data)
+  search = request.GET.get('search')
+  if search:
+    data['empresas'] = Empresas.objects.filter(nomeemp_cmp__icontains = search)
+  else:
+    data['empresas'] = Empresas.objects.all()
+  return render(request, 'mnuempresa.html', data)
+  # data['empresas'] = Empresas.objects.all()
+  # return render(request, 'mnuempresa.html',data)
 
 #'View cadastro empresa'
 def cadastro_empresa(request):
@@ -51,8 +51,12 @@ def delete_empresas(request, pk):
 #'View Menu produto'
 def menu_produto(request):
   data={}
-  data['produtos'] = Produtos.objects.all()
-  return render(request, 'mnuproduto.html',data)
+  search = request.GET.get('search')
+  if search:
+    data['produtos'] = Produtos.objects.filter(nomepdt_cmp__icontains = search)
+  else:
+    data['produtos'] = Produtos.objects.all()
+  return render(request, 'mnuproduto.html', data)
 
 #'View cadastro produto'
 def cadastro_produto(request):
