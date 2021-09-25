@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu Produto</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+</head>
+<body>
+
+<title>Byron Store</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+</head>
+<div class="multi-bg-example">
+  <header>
+    <h1 class = "p-3 mb-2 bg-danger text-white text-center" style="font-family:verdana;">Byron Store</h1>
+  </header>
+  <body>
+
+    <div>
+      <a>|</a>
+      <a href ="/" type="button" class="btn btn-outline-dark btn-lg">Home</a>
+      <a>|</a>
+      <a href ="/mnuproduto" type="button" class="btn btn-outline-dark btn-lg">Produtos</a>
+      <a>|</a>
+      <a href ="/mnuempresa" type="button" class="btn btn-outline-dark btn-lg">Empresas</a>
+      <!-- <a>|</a>
+      <a href ="/" type="button" class="btn btn-outline-dark btn-lg">Busca</a> -->
+    </div>
+
+    <div>
+      <h2 class="text-center" style="color:Tomato;">Menu Produto</h2>
+    </div>
+
+<div class="container">
+  {% for produto in produtos %}
+<ul class="list-group list-group-flush">
+  <li class="list-group-item" id={{produto.codigopdt_cmp}}>Código produto: {{produto.codigopdt_cmp}}</li> 
+  <li class="list-group-item" id={{produto.nomepdt_cmp}}>Nome produto: {{produto.nomepdt_cmp}}</li> 
+  <li class="list-group-item" id={{produto.descpdt_cmp}}>Descrição: {{produto.descpdt_cmp}}</li> <br>
+</ul>
+
+<div class="container text-center" >
+  <a href="/editproduto/{{ produto.id }}" class="btn btn-danger btn-lg">Editar dados</a>
+  <a href="/deleteproduto/{{ produto.id }}" class="btn btn-danger btn-lg">Excluir</a>
+</div>
+
+{% endfor %}
+</div>
+
+</body>
+</html>

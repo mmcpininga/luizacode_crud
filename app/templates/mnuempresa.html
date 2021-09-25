@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu Empresa</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+</head>
+<body>
+
+<title>Byron Store</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+</head>
+<div class="multi-bg-example">
+  <header>
+    <h1 class = "p-3 mb-2 bg-danger text-white text-center" style="font-family:verdana;">Byron Store</h1>
+  </header>
+  <body>
+
+    <div>
+      <a>|</a>
+      <a href ="/" type="button" class="btn btn-outline-dark btn-lg">Home</a>
+      <a>|</a>
+      <a href ="/mnuproduto" type="button" class="btn btn-outline-dark btn-lg">Produtos</a>
+      <a>|</a>
+      <a href ="/mnuempresa" type="button" class="btn btn-outline-dark btn-lg">Empresas</a>
+      <!-- <a>|</a>
+      <a href ="/" type="button" class="btn btn-outline-dark btn-lg">Busca</a> -->
+    </div>
+
+    <div>
+      <h2 class="text-center" style="color:Tomato;">Menu Empresa</h2>
+    </div>
+
+	<div class="container">
+    {% for empresa in empresas %}
+	<ul class="list-group list-group-flush">
+	  <li class="list-group-item" id={{empresa.cnpj_cmp}}>CNPJ: {{empresa.cnpj_cmp}}</li> 
+    <li class="list-group-item" id={{empresa.nomeemp_cmp}}>Nome empresa: {{empresa.nomeemp_cmp}}</li> 
+	  <li class="list-group-item" id={{empresa.enderecoemp_cmp}}>Endereço: {{empresa.enderecoemp_cmp}}</li> 
+	  <li class="list-group-item" id={{empresa.cep_cmp}}>CEP: {{empresa.cep_cmp}}</li> 
+	  <li class="list-group-item" id={{empresa.emailemp_cmp}}>Email: {{empresa.emailemp_cmp}}</li> 
+	  <li class="list-group-item" id={{empresa.telemp_cmp}}>Telefone: {{empresa.telemp_cmp}}</li> <br>
+	</ul>
+  
+  <div class="container text-center" >
+	  <a href="/mnuproduto" class="btn btn-danger btn-lg">Visualizar Produtos</a>
+    <a href="/editempresa/{{ empresa.id }}" class="btn btn-danger btn-lg">Editar dados</a>
+	  <a href="/deleteempresa/{{ empresa.id }}" class="btn btn-danger btn-lg">Excluir</a>
+  </div>
+
+  {% endfor %}
+	</div>
+
+
+</body>
+</html>
